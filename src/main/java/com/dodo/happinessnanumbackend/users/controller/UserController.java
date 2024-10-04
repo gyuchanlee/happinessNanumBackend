@@ -36,6 +36,7 @@ public class UserController {
     public ResponseEntity<String> joinUser(@RequestBody @Valid UserRequestJoinDto dto) {
 
         UserResponseDto joinedUser = userService.join(dto);
+
         return ResponseEntity.ok(joinedUser.getUsername());
     }
 
