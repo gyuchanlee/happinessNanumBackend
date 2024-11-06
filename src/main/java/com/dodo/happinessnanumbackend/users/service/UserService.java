@@ -39,4 +39,6 @@ public interface UserService {
     boolean existsByEmail(String email);
     // 비밀번호 확인
     boolean checkPassword(String username, String password);
+    // 회원 재가입
+    void rejoin(Long userId);
 }

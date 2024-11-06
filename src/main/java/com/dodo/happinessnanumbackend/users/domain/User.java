@@ -34,6 +34,8 @@ public class User {
 
     private LocalDateTime createdAt;
 
+    private boolean isDeleted;
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();

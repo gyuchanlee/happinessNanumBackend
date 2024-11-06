@@ -6,6 +6,7 @@ import com.dodo.happinessnanumbackend.users.dto.UserRequestUpdateDto;
 import com.dodo.happinessnanumbackend.users.dto.UserResponseDto;
 import com.dodo.happinessnanumbackend.users.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -43,13 +45,14 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public UserResponseDto update(UserRequestUpdateDto dto) {
+        log.info("{} 회원 업데이트 로직", dto.getUsername());
         return null;
     }
 
     @Transactional
     @Override
     public void delete(Long userId) {
-
+        log.info("회원 삭제 로직");
     }
 
     @Override
@@ -92,5 +95,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean checkPassword(String username, String password) {
         return false;
+    }
+
+    @Override
+    public void rejoin(Long userId) {
+        log.info("재가입 로직");
     }
 }
